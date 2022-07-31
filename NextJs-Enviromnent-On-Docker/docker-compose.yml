@@ -1,0 +1,15 @@
+version: "3"
+  
+services: 
+  nextapp:       #image name
+    stdin_open: true             #for opening (-it) flag in container  
+    tty: true                    #for opening (-it) flag in container
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./pages:/app/pages:ro
+      - ./public:/app/public:ro
+      - ./styles:/app/styles:ro
+
+# docker-compose up -d --build              ---------- to make a new build  with compose

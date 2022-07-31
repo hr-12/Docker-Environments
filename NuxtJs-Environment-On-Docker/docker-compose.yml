@@ -1,0 +1,15 @@
+version: "3"
+  
+services: 
+  nuxtapp:       #image name
+    stdin_open: true             #for opening (-it) flag in container  
+    tty: true                    #for opening (-it) flag in container
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./src:/app/src:ro
+      - ./components:/app/components:ro
+      - ./pages:/app/pages:ro
+
+# docker-compose up -d --build              ---------- to make a new build  with compose
